@@ -726,6 +726,7 @@ function gutenberg_register_scripts_and_styles() {
 			'wp-embed',
 			'wp-i18n',
 			'wp-keycodes',
+			'wp-notices',
 			'wp-nux',
 			'wp-plugins',
 			'wp-polyfill',
