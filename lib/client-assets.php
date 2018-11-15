@@ -408,6 +408,22 @@ function gutenberg_register_scripts_and_styles() {
 		),
 		'after'
 	);
+	wp_add_inline_script(
+		'moment',
+		sprintf(
+			"moment.locale( '%s', %s );",
+			get_user_locale(),
+			wp_json_encode(
+				array(
+					'months'        => array_values( $wp_locale->month ),
+					'monthsShort'   => array_values( $wp_locale->month_abbrev ),
+					'weekdays'      => array_values( $wp_locale->weekday ),
+					'weekdaysShort' => array_values( $wp_locale->weekday_abbrev ),
+				)
+			)
+		),
+		'after'
+	);
 	gutenberg_override_script(
 		'wp-element',
 		gutenberg_url( 'build/element/index.js' ),
