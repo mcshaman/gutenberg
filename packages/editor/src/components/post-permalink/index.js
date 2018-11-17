@@ -131,7 +131,7 @@ class PostPermalink extends Component {
 					/>
 				}
 
-				{ isEditable && ! isEditingPermalink && ! isNew &&
+				{ isEditable && ! isEditingPermalink &&
 					<Button
 						className="editor-post-permalink__edit"
 						isLarge
