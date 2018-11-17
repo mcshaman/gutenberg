@@ -77,7 +77,7 @@ class PostPermalink extends Component {
 	}
 
 	render() {
-		const { currentSlug, currentTitle, isEditable, isNew, isPublished, permalinkParts, postLink } = this.props;
+		const { isNew, postLink, isEditable, isPublished, currentSlug, currentTitle, permalinkParts } = this.props;
 
 		if ( isNew || ! postLink ) {
 			return null;
@@ -160,12 +160,12 @@ class PostPermalink extends Component {
 export default compose( [
 	withSelect( ( select ) => {
 		const {
-			isCleanNewPost,
-			isCurrentPostPublished,
 			isPermalinkEditable,
+			getCurrentPost,
+			isCurrentPostPublished,
+			isCleanNewPost,
 			isSavingPost,
 			getAutosaveAttribute,
-			getCurrentPost,
 			getEditedPostAttribute,
 			getPermalinkParts,
 		} = select( 'core/editor' );
@@ -173,14 +173,14 @@ export default compose( [
 		const { id, link, title, status } = getCurrentPost();
 
 		return {
-			currentSlug: getEditedPostAttribute( 'slug' ),
-			isEditable: isPermalinkEditable(),
 			isNew: isCleanNewPost(),
+			postLink: link,
+			isEditable: isPermalinkEditable(),
 			isPublished: isCurrentPostPublished(),
 			isSaving: isSavingPost(),
+			currentSlug: getEditedPostAttribute( 'slug' ),
 			permalinkParts: getPermalinkParts(),
 			postID: id,
-			postLink: link,
 			postStatus: status,
 			postTitle: title,
 			savedSlug: getAutosaveAttribute( 'generated_slug' ),

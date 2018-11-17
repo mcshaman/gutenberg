@@ -160,7 +160,7 @@ export class PostPreviewButton extends Component {
 	}
 
 	render() {
-		const { className, currentPostLink, isPermalink, isSaveable, linkElement, previewLink, samplePermalink } = this.props;
+		const { previewLink, currentPostLink, isSaveable, className, isPermalink, linkElement, samplePermalink } = this.props;
 
 		// Link to the `?preview=true` URL if we have it, since this lets us see
 		// changes that were autosaved since the post was last published. Otherwise,
