@@ -377,8 +377,8 @@ function gutenberg_auto_save_get_sample_permalink( $permalink, $id, $title, $nam
 	$post->post_status = 'publish';
 	$post->post_name   = sanitize_title( $post->post_name ? $post->post_name : $post->post_title, $post->ID );
 
-	// If the user wants to set a new name -- override the current one
-	// Note: if empty name is supplied -- use the title instead, see #6072
+	// If the user wants to set a new name -- override the current one.
+	// Note: if empty name is supplied -- use the title instead, see #6072.
 	if ( ! is_null( $name ) ) {
 		$post->post_name = sanitize_title( $name ? $name : $title, $post->ID );
 	}
@@ -392,7 +392,7 @@ function gutenberg_auto_save_get_sample_permalink( $permalink, $id, $title, $nam
 	// Replace custom post_type Token with generic pagename token for ease of use.
 	$permalink = str_replace( "%$post->post_type%", '%pagename%', $permalink );
 
-	// Handle page hierarchy
+	// Handle page hierarchy.
 	if ( $ptype->hierarchical ) {
 		$uri = get_page_uri( $post );
 		if ( $uri ) {
